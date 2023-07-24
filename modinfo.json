@@ -1,0 +1,13 @@
+{
+    "type": "code",
+    "side": "client",
+    "modid": "EasyMapMaker",
+    "name": "Easy Map Maker",
+    "description": "Simply make a maker when you harvest resin.",
+    "authors": ["Kyosasha"],
+    "version": "1.0.0",
+    "dependencies": {
+      "game": "1.18.0-rc.1"
+    }
+  }
+  

@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <LangVersion>10.0</LangVersion>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Console" Version="4.3.0" />
+    <Reference Include="Vintagestory">
+        <HintPath>$(VINTAGE_STORY)\Vintagestory.exe</HintPath>
+        <Private>false</Private>
+    </Reference>
+    <Reference Include="VintagestoryAPI">
+        <HintPath>$(VINTAGE_STORY)\VintagestoryAPI.dll</HintPath>
+        <Private>false</Private>
+    </Reference>        
+    <Reference Include="VintagestoryAPIClient">
+        <HintPath>$(VINTAGE_STORY)\VintagestoryLib.dll</HintPath>
+        <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include=".gitignore" />
+    <None Include="LICENSE.md" />
+    <None Include="README.md" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="VSWaypoint.cs" />
+  </ItemGroup>
+  
+  <ItemGroup Condition="'$(Configuration)' == 'ReleaseToMods'">
+		<None Include="LICENSE" CopyToOutputDirectory="PreserveNewest" />
+		<None Include="resources/**">
+			<Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+</Project>
